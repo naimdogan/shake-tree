@@ -1,0 +1,168 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+.container {
+ width: 800px;
+  margin: 0 auto;
+}
+
+//yere düşen elmaların yerdeki pozisyonlarını belirliyoruz.
+:root {
+  --position: 280px;
+}
+
+.shake {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  padding-bottom: 9%;
+  &__basket {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tree {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+
+  &__apple {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    img {
+      position: absolute;
+      &.-active {
+        left: 50%;
+        top: 380px !important;
+      }
+      &.apple0 {
+        left: 37%;
+        top: 7%;
+        --position: 370px;
+      }
+      &.apple1 {
+        left: 56%;
+        top: 11%;
+        --position: 370px;
+      }
+      &.apple2 {
+        left: 23%;
+        top: 22%;
+        --position: 350px;
+      }
+      &.apple3 {
+        left: 72%;
+        top: 27%;
+        --position: 320px;
+      }
+      &.apple4 {
+        left: 11%;
+        top: 42%;
+        --position: 260px;
+      }
+      &.apple5 {
+        left: 39%;
+        top: 36%;
+        --position: 270px;
+      }
+      &.apple6 {
+        left: 59%;
+        top: 43%;
+        --position: 235px;
+      }
+      &.apple7 {
+        left: 81%;
+        top: 43%;
+        --position: 260px;
+      }
+      &.apple8 {
+        left: 29%;
+        top: 53%;
+        --position: 230px;
+      }
+      &.apple9 {
+        left: 16%;
+        top: 70%;
+        --position: 200px;
+      }
+      &.apple10 {
+        left: 59%;
+        top: 62%;
+        --position: 230px;
+      }
+      &.apple11 {
+        left: 74%;
+        top: 70%;
+        --position: 150px;
+      }
+    }
+  }
+}
+
+//ağacın sallama animasyonları
+.shaked {
+  animation: shake 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+//elmaların düşme animasyonları
+.drop {
+  animation: drop 1s forwards;
+}
+@keyframes drop {
+  0% {
+    transform-origin: center;
+    opacity: 1;
+  }
+  20% {
+    transform: 
+    translate3d(0, 20px, 0)
+    rotate3d(0, 0, 1, -10deg);
+    opacity: 1;
+  }
+  40%, 45% {
+    transform: 
+    translate3d(0, -20px, 0)
+    rotate3d(0, 0, 1, 10deg);
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: 
+    translate3d(0, var(--position), 0)
+    rotate3d(0, 0, 0, 0deg);
+  }
+}

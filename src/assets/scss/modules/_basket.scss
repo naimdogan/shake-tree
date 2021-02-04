@@ -1,0 +1,33 @@
+.basket {
+    position: relative;
+    bottom: -40px;
+    &__item {
+      position: relative;
+      bottom: -50px;
+      display: flex;
+      flex-flow: wrap-reverse;
+      justify-content: center;
+      width: 190px;
+    }
+    &__bg {
+      position: relative;
+      z-index: 1;
+    }
+
+    &__count {
+      position: absolute;
+      z-index: 2;
+      background: #fff;
+      font-size: 18px;
+      border-radius: 30px;
+      right: calc(50% - 15px);
+      width: 40px;
+      height: 40px;
+      bottom: 80px;
+      border: solid 3px #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+    }
+  }
