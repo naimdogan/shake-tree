@@ -20,7 +20,6 @@ import Tree from "./components/Tree.vue";
 import Apple from "./components/Apple.vue";
 import Button from "./components/Button.vue";
 import Basket from "./components/Basket.vue";
-import "./assets/style.css";
 export default {
   name: "App",
   components: {
